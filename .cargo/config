@@ -1,0 +1,27 @@
+[target.thumbv8m.main-none-eabihf]
+runner = "arm-none-eabi-gdb -q -x jlink.gdb"
+linker = "arm-none-eabi-gcc"
+ar = "arm-none-eabi-ar"
+rustflags = [
+  "-C", "link-args=-Tlink.x -nostartfiles",
+]
+
+[target.thumbv8m.main-none-eabi]
+runner = "arm-none-eabi-gdb -q -x jlink.gdb"
+# linker = "arm-none-eabi-gcc"
+# ar = "arm-none-eabi-ar"
+# link-arg = "-nostartfiles"
+rustflags = [
+  "-C", "link-args=-Tlink.x",
+]
+
+[target.thumbv7m-none-eabi]
+runner = "arm-none-eabi-gdb -q -x profile.gdb"
+rustflags = [
+  "-C", "link-args=-Tlink.x",
+]
+
+
+[build]
+target = "thumbv7m-none-eabi"
+# target = "thumbv8m.main-none-eabi"
